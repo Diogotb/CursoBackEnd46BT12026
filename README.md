@@ -153,7 +153,11 @@ Declarar variáveis é alocar um espaço na memoria que permite a inclusão e ma
 - pode ser criada usando "const" ou "define"
 - não permitem interpolação
 
-##### Estudo de Operadores
+---
+
+### Semana 2 - Operadores em PHP (Aritméticos, Relacionais e Lógicos)
+
+#### Estudo de Operadores
 
 **Aritméticos**: São usados para Realizar Cálculos.
 
@@ -194,3 +198,119 @@ obs: O Operador % é o melhor amigo de um programador, permite ordenar listas e 
 - Operador NOT (Não) => ! : Inverte a lógica da Sentença
     - !true => false
     - !false => true
+
+### Semana 3 - Estrutura de Controle de Dados ( Condicionais e Repetição)
+
+- **Conteúdo**: Estruturas `if`, `else`, `elseif`, operadores ternários, `match` => substituto do `swicth/case`, loops `for`, `while`, `do-while` e `foreach`
+
+#### Estrutura de Controle de Dados ajudam no processo de automatização em programas e sistemas
+
+##### Condicionais (IF, ELSE, ELSEIF)
+
+**Forma de Uso**:
+
+- Uso do `if` apenas: 
+Exemplo: aplicar um desconto de 10% em comrpas acima de 100 Reais;
+
+```mermaid
+
+graph LR
+    A[Comando] --> B[Condição] --> C[Tomada de Decisão]
+
+```
+
+```php
+if ($valorCompra > 100) {
+    $valorCompra = $valorCompra * 0.9;
+}
+```
+
+- Uso do `if` e do `else`
+Exemplo: Aplicar um desconto de 10% para compras acima de 100 reais e 5% para as demais compras
+
+```mermaid
+
+graph LR
+
+    A[Comando] --> B{Condição}
+    B --> |true| C[Ação 1]
+    B --> |false| D[Ação 2]
+
+```
+
+```php
+
+if($valorCompra > 100) {
+    $valorFinal = $valorCompra*0.9;
+} else{
+    $valorFinal = $valorCompra*0.95;
+}
+
+```
+
+- Uso do `elseif` (Encadeado)
+Exemplo: Comrpas acima de 200 reais tem 15% de desconto, acimda de 100 reais tem 10% de desconto e outras 5% de desconto
+
+```mermaid
+
+graph LR
+    A[Comando] --> B{Condição 1}
+    B --> |true| C[Ação 1]
+    B --> |false| D{Condição 2}
+    D --> |true| E[Ação 2]
+    D --> |false| F[Ação 3]
+
+```
+
+```php 
+
+if($valorCompra > 200) {
+    $valorFinal = $valorCompra*0.85;
+} elseif($valorCompra >100) {
+    $valorFinal - $valorCompra*0.9;
+} else {
+    $valorFinal = $valorCompra*0.95;
+}
+
+```
+
+*obs*: sempre usar `elseif` para situações que precisam de mais de uma condição, ou seja, fazer encadeamento das condições. 
+
+##### Operadores Ternários
+Um atalho para a estrutura condicional `if/else`, normalmente escrito em uma unica linah de código.
+
+` condição  ? verdadeira : falso `
+
+Perfeito para decições curtas de uma linha de comando 
+Exemplo: Verificar se Pessoa é Maior de Idade (18)
+
+```php 
+
+$idade = 20;
+//O formato é : (Condição) ? Verdadeiro : Falso;
+
+$status = ($idade >= 18) ? "Maior de Idade" : "Manor de Idade";
+
+```
+
+##### Expressão Condicional `match` (PHP 8)
+
+No mercado de PHP atual, não se usa mais uma dezena de `if/elseif`para checar valores fixos, e o antigo `switch/case`caiu em desuso. Usamos o `match`. Ele compara um valor e retorna diretamente o resultado.
+
+```mermaid
+
+graph TD
+    A[valor] --> B{Condicional}
+    B --> C[Ação 1]
+    B --> D[Ação 2]
+    B --> E[Ação 3]
+    B --> F[Ação 4]
+    B --> G[...]
+    B --> H[Ação default]
+    
+```
+
+
+
+
+
