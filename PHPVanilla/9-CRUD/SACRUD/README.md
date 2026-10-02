@@ -13,6 +13,7 @@ SACRUD/
 |   ⌊__ PecaDAO.php         <-  Camada de acesso a dados (CRUD com prepared Statement)
 |__ schema.sql              <-  Script do banco de Dados
 |__ index.php               <-  Controlador e interface visual
+|__ .gitignore              <-  Arquivo para controle de versinamento, evitando subir informações de configuração
 |__ README.md               <-  Documentação do Projeto
 
 ```
@@ -21,7 +22,7 @@ SACRUD/
 
 ```sql
 --Criação do banco
-CREATE DATABASE peca_senai WITH ENCODING 'UTG8';
+CREATE DATABASE peca_senai WITH ENCODING 'UTF8';
 
 -- Criação da tabela de peças industriais do almoxarifado
 CREATE TABLE IF NOT EXISTS pecas_industriais (
