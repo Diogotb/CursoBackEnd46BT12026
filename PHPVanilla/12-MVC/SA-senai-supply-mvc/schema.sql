@@ -1,6 +1,6 @@
 -- schema.sql: Estrutura relacional do SENAI Supply MVC
---0. Criação do Banco de Dados (se ainda não existir)
-CREATE DATABASE senai_suplly_mvc;
+-- Crie o banco separadamente e conecte-se a ele antes de executar este arquivo.
+-- CREATE DATABASE senai_suplly_mvc;
 
 -- 1. Tabela de Usuários com Perfil RBAC
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -49,4 +49,4 @@ INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES
 -- senha: 123456
 ('Almoxarife', 'almoxarife@senai.supply', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.u8U4WvJbM60W3761d20', 'almoxarife')
 -- senha: 123456
-
+ON CONFLICT (email) DO NOTHING;

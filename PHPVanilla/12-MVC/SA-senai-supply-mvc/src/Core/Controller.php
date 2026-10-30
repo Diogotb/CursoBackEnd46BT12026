@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 
+namespace App\Core;
+
+use RuntimeException;
+
 //classe base para os controller (superclasse Controller)
 
 abstract class Controller {
@@ -11,7 +15,10 @@ abstract class Controller {
      */
     protected function renderizar(string $view, array $dados = []): void {
         extract($dados, EXTR_SKIP);
-        $arquivoView = dirname(__DIR__) . "/Views/{$view}.php";
+        $arquivoView = dirname(__DIR__) . "/Views/{$view}";
+        if (!str_ends_with($arquivoView, '.php')) {
+            $arquivoView .= '.php';
+        }
         if (!file_exists($arquivoView)) {
             throw new RuntimeException("A view nao foi localizada: {$arquivoView}");
         }
@@ -23,7 +30,7 @@ abstract class Controller {
     /**
      * Redireciona o navegador para uma rota interna do sistema.
      */
-    protected function redirecionar(string $rota): void {
+   protected function redirecionar(string $rota): void {
         header("Location: {$rota}");
         exit;
     }

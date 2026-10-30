@@ -147,7 +147,7 @@ senai-supply-mvc/
 
 ### Modelagem Ralacional e Script DDL (`schema.sql`)
 
-Criar o Banco de Dados e Executar o Script SQL para Criação das Tabelas
+Crie o banco configurado em `config/database.ini` (`senai_suplly_mvc`) separadamente. Em seguida, conecte-se a esse banco no cliente PostgreSQL e execute `schema.sql` para criar as tabelas e inserir os dados iniciais. O PostgreSQL não troca automaticamente para o banco recém-criado durante a execução de um script.
 
 ### Configuração do Autoload PSR-4 (`composer.json`)
 
@@ -191,5 +191,4 @@ Classe que contem métodos comuns a todas as classes controllers
 
 ### Criação dos Middleware
 Classe para gerenciamento de guards e rotas de navegação 
-
 

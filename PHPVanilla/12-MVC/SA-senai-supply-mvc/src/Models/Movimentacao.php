@@ -1,7 +1,15 @@
 <?php
 declare(strict_types=1);
 
+namespace App\Models;
+
+use App\Core\ConexaoBanco;
 use PDO;
+use App\Core\Logger;
+use Throwable;
+use DomainException;
+
+
 
 final class Movimentacao {
     //criar o PDO
@@ -81,7 +89,7 @@ final class Movimentacao {
     public static function listarHistorico(int $limite = 20): array {
         $sql = "SELECT m.id, m.tipo, m.quantidade, m.motivo, m.criado_em,
                        p.nome AS produto_nome, u.nome AS usuario_nome
-                FROM movimentacoes_estoque m
+                FROM movimentacoes m
                 JOIN produtos p ON p.id = m.produto_id
                 JOIN usuarios u ON u.id = m.usuario_id
                 ORDER BY m.criado_em DESC LIMIT :limite";

@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+namespace App\Controllers;
+
+use App\Core\Controller;
+use App\Core\Logger;
+use App\Models\Produto;
+
 final class ProdutoController extends Controller {
 
     //listar todos os produtos
@@ -9,7 +15,7 @@ final class ProdutoController extends Controller {
         $produtos = Produto::listarTodos();
         $this->renderizar("produtos/listar", [
             "titulo" => "Catálogo Geral de Insumos/Produtos",
-            "produto" => $produtos
+            "produtos" => $produtos
         ]);
     }
 
