@@ -139,3 +139,27 @@ Execute a sequência de 7 testes de validação técnica no laboratório:
    Execute `php artisan about` no terminal.  
    *Resultado Esperado:* Todos os indicadores técnicos devem estar validados em verde.
 
+# Continuando a palicação - Criação do Módulo Gerenciamento de Clientes
+
+## Criação do Model e Migração do Banco de Dados
+
+Criar o arquivo de migração e o model com o comando 
+
+`php artisan make:model Cliente -m`
+
+- um arquivo no `databa/migration` -> inserir a tabela no banco
+- um arquivo no `app/Model` -> gerenciador do Modelo de relacional
+
+comando para Automação do Banco
+
+`php artisan migrate`
+
+## Criar o Controller de Recurso para a Entidade Cliente
+
+Executar o Comando
+
+`php artisan make:controller ClienteController --resource`
+
+- um arquivo é criado em `app/Http/Controllers/ClienteController.php`
+
+contendo os 7 método de assinatura do resource
